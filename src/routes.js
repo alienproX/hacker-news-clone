@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, IndexRoute, Link } from 'react-router'
 
-/* container components */
 import App from './containers/App'
 import Home from './containers/Home/Home'
 import Comments from './containers/Comments/Comments'

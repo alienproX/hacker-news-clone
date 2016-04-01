@@ -5,7 +5,7 @@ import styles from './Login.css'
 
 class Login extends Component {
   render () {
-    document.title = 'Ask'
+    document.title = 'Login'
     return (
       <div className={styles.login}>
         <ul>

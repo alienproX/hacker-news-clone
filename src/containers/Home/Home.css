@@ -128,27 +128,6 @@
 	margin-right: 4px;
 }
 
-@font-face {
-	font-family: 'icomoon';
-	src: url('/public/fonts/icomoon.eot?k5tiwb');
-	src: url('/public/fonts/icomoon.eot?k5tiwb#iefix') format('embedded-opentype'), url('/public/fonts/icomoon.ttf?k5tiwb') format('truetype'), url('/public/fonts/icomoon.woff?k5tiwb') format('woff'), url('/public/fonts/icomoon.svg?k5tiwb#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-[class^="icon-"],
-[class*=" icon-"] {
-	font-family: 'icomoon' !important;
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-}
-
 .noMoreNews {
 	text-align: center;
 	font-size: 14px;

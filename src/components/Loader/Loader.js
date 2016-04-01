@@ -3,7 +3,7 @@ import styles from './Loader.css'
 
 function Loader() {
   return (
-  	<img className={styles.loading} src="/public/loading.gif" />
+  	<img className={styles.loading} src="/dist/loading.gif" />
   )
 }
 

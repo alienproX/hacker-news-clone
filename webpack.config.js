@@ -18,9 +18,9 @@ module.exports = {
     ]
   },
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     filename: 'app.js',
-    publicPath: '/public/'
+    publicPath: '/dist/'
   },
   module: {
     loaders: [

@@ -46,8 +46,8 @@ class Home extends Component {
       			<h3><a href={item.url} target="_blank">{item.title}</a></h3>
       			<cite><a href={item.url} target="_blank">{getHost(item.url)}</a> <time>-- {socialTime(item.time)}</time></cite>
       			<div className={styles.actionArea}>
-      			<a href={"https://hn.algolia.com/?query="+item.title} target="_blank"><span className={baseSty.iconClock}></span>past</a>
-      			<a href={"https://www.google.com/search?q="+item.title} target="_blank"><span className={baseSty.iconLink}></span>web</a>
+      			<a href={`https://hn.algolia.com/?query=${item.title}`} target="_blank"><span className={baseSty.iconClock}></span>past</a>
+      			<a href={`https://www.google.com/search?q=${item.title}`} target="_blank"><span className={baseSty.iconLink}></span>web</a>
       			<a href="#"><span className={baseSty.iconBubble}></span>discuss</a>
       			<a href="#" className={styles.user}>@{item.by}</a>
       			</div>

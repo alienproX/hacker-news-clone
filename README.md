@@ -2,6 +2,8 @@
 
 A Hacker News web client created with `React` & `Redux`.
 
+online demo http://cattla.github.io/
+
 **Steps**
 
 ```

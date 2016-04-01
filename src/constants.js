@@ -1,0 +1,4 @@
+module.exports = {
+  RECEIVE_NEWS: 'RECEIVE_NEWS',
+  NO_MORE_NEWS:'NO_MORE_NEWS'
+}

@@ -1,0 +1,93 @@
+.login {
+	padding: 20px;
+	overflow: hidden;
+}
+
+.login ul {
+	width: 45%;
+	float: left;
+}
+
+.login ul:nth-of-type(2) {
+	float: right;
+	padding-top: 92px;
+	    text-align: center;
+}
+.login ul:nth-of-type(2) a{
+	font-size: 16px;
+}
+
+.login ul h3 {
+	text-align: center;
+	font-size: 18px!important;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 20px;
+}
+
+.login ul li {
+	overflow: hidden;
+	margin: 10px 0px;
+	position: relative;
+	height: 40px;
+}
+
+.login ul li span {
+	display: block;
+	float: left;
+	width: 80px;
+	font-size: 14px;
+	height: 32px;
+	line-height: 34px;
+}
+
+.login ul li div {
+	position: absolute;
+	left: 80px;
+	right: 0px;
+}
+
+.login ul li input {
+	display: block;
+	float: left;
+	height: 32px;
+	padding: 2px 5px;
+	border-radius: 4px;
+	border: 1px solid rgba(204, 204, 204, 0.53);
+	width: 100%;
+	outline: none;
+	box-sizing: border-box;
+}
+
+.login ul button {
+	display: block;
+	width: 100px;
+	margin: 0px auto;
+	background: rgba(8, 130, 83, 0.62);
+	border: 1px solid #489477;
+	color: #fff;
+	padding: 5px 7px;
+	font-size: 16px;
+	border-radius: 4px;
+	cursor: pointer;
+	margin-bottom: 20px;
+}
+
+.login ul a {
+	font-size: 12px;
+	color: #65B194;
+	text-decoration: none;
+}
+
+@media (max-width: 600px) {
+	.login ul {
+		width: 100%;
+	}
+	.login ul:nth-of-type(2) {
+		float: right;
+		margin-top: 20px;
+		padding-top: 20px;
+		border-top: 1px solid #eee;
+		    text-align: center;
+	}
+}

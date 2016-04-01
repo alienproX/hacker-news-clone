@@ -1,8 +1,18 @@
+# Hacker News Clone
 
-## Run
+A Hacker News web client created with `React` & `Redux`.
+
+**Steps**
 
 ```
-npm install
+git clone https://github.com/cattla/hacker-news-clone.git
+
+cd hacker-news-clone && npm install
+
 npm start
-open http://127.0.0.1:3000
+
 ```
+
+
+open brower and enter URL `http://localhost:3000`
+

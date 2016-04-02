@@ -30,7 +30,7 @@ function socialTime (date, full) {
 		return interval + " hrs ago"
 
 	interval = Math.floor(seconds / 60)
-	if (interval > 1)
+	if (interval >= 1)
 		return interval + " mins ago"
 
 	return Math.floor(seconds) + " secs ago"

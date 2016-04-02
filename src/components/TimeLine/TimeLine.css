@@ -38,6 +38,7 @@
 	outline: none;
 	transition: .3s;
 	background: #fff;
+	height: 55px;
 }
 
 .timeLine li button::before {
@@ -136,10 +137,16 @@
 }
 
 @media (max-width: 600px) {
+	.timeLine {
+		padding: 0px;
+	}
+	.timeLine li {
+		padding: 25px 0 15px;
+	}
 	.timeLine li i {
 		width: auto;
 		position: absolute;
-		top: 0px;
+		top: 4px;
 		font-size: 12px;
 		height: 20px;
 		line-height: 20px;
@@ -154,11 +161,11 @@
 		margin-right: 10px;
 	}
 	.timeLine li .actionArea a {
-		margin-right: 35px;
+		margin-right: 20px;
 	}
 	.user {
 		position: absolute;
-		top: 4px;
+		top: 7px;
 		right: 10px;
 		margin-right: 0px!important;
 	}

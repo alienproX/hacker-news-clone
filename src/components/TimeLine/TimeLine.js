@@ -29,6 +29,7 @@ class TimeLine extends Component {
     if(!isEmpty(data.list) ){
       list = (
         data.list.map(function (item,index) {
+          let comments = item.descendants > 0 ? `${item.descendants+(item.descendants == 1 ? ` comment`:` comments`)}`: `discuss`
           return (
             <li key={item.id}>
             <i>{index+1}</i>
@@ -39,7 +40,7 @@ class TimeLine extends Component {
             <div className={styles.actionArea}>
             <a href={`https://hn.algolia.com/?query=${item.title}`} target="_blank"><span className={baseSty.iconClock}></span>past</a>
             <a href={`https://www.google.com/search?q=${item.title}`} target="_blank"><span className={baseSty.iconLink}></span>web</a>
-            <a href="#"><span className={baseSty.iconBubble}></span>discuss</a>
+            <a href="#"><span className={baseSty.iconBubble}></span>{comments}</a>
             <Link to={`/user/${item.by}`} className={styles.user}>@{item.by}</Link>
             </div>
             </div>

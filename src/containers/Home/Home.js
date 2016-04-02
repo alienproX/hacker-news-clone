@@ -18,7 +18,7 @@ class Home extends Component {
 		const { newsList, dispatch, start, noMoreNews } = this.props
 		let loader = <Loader />
 		let list = null
-		let moreStatus = false;
+		let moreStatus = false
 
 		document.onscroll = function() {
 

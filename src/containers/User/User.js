@@ -6,19 +6,21 @@ import styles from './User.css'
 import { isEmpty, socialTime } from '../../utils'
 import { Link } from 'react-router'
 
-
 class User extends Component {
   componentDidMount () {
     this.props.dispatch(fetchUser(this.props.params.id))
   }
   render () {
     document.title = `Profile: ${this.props.params.id}`
-    const { user } = this.props
-    console.log(user)
-    if(isEmpty(user)){
+
+    const { user , created} = this.props
+
+    if(isEmpty(user) || window.createdTime == created ){
       return <Loader />
     }
     else{
+			window.createdTime = created
+
       return (
         <div className={styles.user}>
         <ul>
@@ -31,12 +33,14 @@ class User extends Component {
         </div>
         )
     }
+
   }
 }
 
 function mapStateToProps(state) {
   return {
-    user: state.getUser.user
+    user: state.getUser.user,
+		created: state.getUser.created
   }
 }
 

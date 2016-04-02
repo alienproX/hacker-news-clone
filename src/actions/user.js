@@ -13,7 +13,8 @@ function fetchUser(id) {
 function receiveUser(json, start) {
 	return {
 		type: constants.RECEIVE_USER,
-		json: json
+		json: json,
+		created: Date.now()
 	}
 }
 

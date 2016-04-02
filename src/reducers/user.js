@@ -8,7 +8,7 @@ function getUser(state = initialState, action) {
 
     case constants.RECEIVE_USER:
 
-    return Object.assign({}, state, { user: action.json} )
+    return Object.assign({}, state, { user: action.json, created:action.created} )
 
     default:
     return state

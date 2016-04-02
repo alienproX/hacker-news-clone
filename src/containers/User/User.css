@@ -1,0 +1,25 @@
+.user {
+	padding: 30px 0px;
+	font-size: 14px;
+	color: #777;
+}
+
+.user li {
+	padding: 5px 0px;
+	overflow: hidden;
+}
+
+.user li span {
+	display: block;
+	width: 60px;
+	line-height: 1.5;
+	float: left;
+	vertical-align: top;
+	font-weight: bold;
+}
+
+.user li div {
+	line-height: 1.5;
+	vertical-align: top;
+  margin-left: 60px;
+}

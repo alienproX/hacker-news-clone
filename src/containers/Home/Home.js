@@ -17,7 +17,7 @@ class Home extends Component {
 		document.title = 'Hacker News'
 		const { newsList, dispatch, start, noMoreNews } = this.props
 		let loader = <Loader />
-		let packages = null
+		let list = null
 		let moreStatus = false;
 
 		document.onscroll = function() {
@@ -36,7 +36,7 @@ class Home extends Component {
 
 		if(!isEmpty(newsList) ){
       //loader = moreStatus ? <Loader /> : null
-      packages = (
+      list = (
       	newsList.map(function (item) {
       		return (
       			<li key={item.id}>
@@ -49,7 +49,7 @@ class Home extends Component {
       			<a href={`https://hn.algolia.com/?query=${item.title}`} target="_blank"><span className={baseSty.iconClock}></span>past</a>
       			<a href={`https://www.google.com/search?q=${item.title}`} target="_blank"><span className={baseSty.iconLink}></span>web</a>
       			<a href="#"><span className={baseSty.iconBubble}></span>discuss</a>
-      			<a href="#" className={styles.user}>@{item.by}</a>
+      			<Link to={`/user/${item.by}`} className={styles.user}>@{item.by}</Link>
       			</div>
       			</div>
       			</li>
@@ -60,7 +60,7 @@ class Home extends Component {
 
   return (
   	<div className={styles.timeLine}>
-  	<ul>{packages}</ul>
+  	<ul>{list}</ul>
   	{noMoreNews ? '':loader}
   	<div className={noMoreNews?styles.noMoreNews:''}>{noMoreNews?'No More News :)':''}</div>
   </div>

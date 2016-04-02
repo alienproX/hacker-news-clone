@@ -1,1 +1,2 @@
-export newsList from './news' 
+export newsList from './news'
+export getUser from './user' 

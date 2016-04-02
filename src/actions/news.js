@@ -1,6 +1,6 @@
 import fetch from 'isomorphic-fetch'
 const constants = require('../constants')
-const API = 'https://hacker-news.firebaseio.com/v0/'
+const API = constants.API
 const count = 25
 let exist = null
 

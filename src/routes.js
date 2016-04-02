@@ -9,6 +9,7 @@ import Newest from './containers/Newest/Newest'
 import Show from './containers/Show/Show'
 import Ask from './containers/Ask/Ask'
 import Jobs from './containers/Jobs/Jobs'
+import User from './containers/User/User'
 import SubmitPage from './containers/Submit/Submit'
 
 const routes = (
@@ -21,6 +22,7 @@ const routes = (
     <Route path="/jobs" component={Jobs}/>
     <Route path="/submit" component={SubmitPage}/>
     <Route path="/login" component={Login}/>
+    <Route path="/user/:id" component={User}/>
   </Route>
 )
 

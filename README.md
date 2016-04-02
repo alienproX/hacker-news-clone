@@ -16,5 +16,4 @@ npm start
 ```
 
 
-open brower and enter URL `http://localhost:3000`
-
+open browser and enter URL `http://localhost:3000`

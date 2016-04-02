@@ -18,33 +18,16 @@ class Home extends Component {
   render () {
     document.title = 'Hacker News'
     const { newsList, dispatch, start, noMoreNews } = this.props
-    let loader = <Loader />
-    let list = null
-    let moreStatus = false
-
-    document.onscroll = function() {
-      if(moreStatus) {
-        return
-      }
-      else{
-        moreStatus = (document.body.scrollTop > 0 && document.body.scrollTop >= document.body.offsetHeight - window.innerHeight - 200) ? true : false
-        if(moreStatus){
-          loader = <Loader />
-          dispatch(fetchNews(start))
-        }
-      }
-    }
-
-    if(!isEmpty(newsList) ){
-      list = <TimeLine data = {newsList} />
-    }
-
+		let data = {
+			list: newsList,
+			dispatch: dispatch,
+			start: start,
+			fetchNews: fetchNews,
+			newest: false,
+			noMoreNews: noMoreNews
+		}
     return (
-      <div className={styles.home}>
-      {list}
-      {noMoreNews ? '':loader}
-      <div className={noMoreNews?styles.noMoreNews:''}>{noMoreNews?'No More News :)':''}</div>
-    </div>
+    <TimeLine data = {data} />
     )
   }
 }

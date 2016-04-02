@@ -2,15 +2,33 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styles from './TimeLine.css'
 import baseSty from '../../styles/base.css'
-import {socialTime, getHost } from '../../utils'
+import {isEmpty, socialTime, getHost } from '../../utils'
+import Loader from '../Loader/Loader'
 import { Link } from 'react-router'
 
 class TimeLine extends Component {
   render () {
-    return (
-      <ul  className={styles.timeLine}>
-      {
-        this.props.data.map(function (item,index) {
+    let data = this.props.data
+    let loader = <Loader />
+    let list = null
+    let moreStatus = false
+
+    document.onscroll = function() {
+      if(moreStatus) {
+        return
+      }
+      else{
+        moreStatus = (document.body.scrollTop > 0 && document.body.scrollTop >= document.body.offsetHeight - window.innerHeight - 200) ? true : false
+        if(moreStatus){
+          loader = <Loader />
+          data.dispatch(data.fetchNews(data.start,data.newest))
+        }
+      }
+    }
+
+    if(!isEmpty(data.list) ){
+      list = (
+        data.list.map(function (item,index) {
           return (
             <li key={item.id}>
             <i>{index+1}</i>
@@ -28,9 +46,19 @@ class TimeLine extends Component {
             </li>
             )
         })
-      }
-      </ul>
-      )
+        )
+}
+
+return (
+  <div className={styles.home}>
+  <ul className={styles.timeLine}>
+  {list}
+  </ul>
+  {data.noMoreNews ? '':loader}
+  <div className={data.noMoreNews?styles.noMoreNews:''}>{data.noMoreNews?'No More News :)':''}</div>
+</div>
+)
+
 }
 }
 

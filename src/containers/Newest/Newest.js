@@ -15,39 +15,21 @@ class Home extends Component {
     }
   }
 
-  render () {
-    document.title = 'New Links'
-    const { newestList, dispatch, start, noMoreNews } = this.props
-    let loader = <Loader />
-    let list = null
-    let moreStatus = false
-
-    document.onscroll = function() {
-
-      if(moreStatus) {
-        return
-      }
-      else{
-        moreStatus = (document.body.scrollTop > 0 && document.body.scrollTop >= document.body.offsetHeight - window.innerHeight - 200) ? true : false
-        if(moreStatus){
-          loader = <Loader />
-          dispatch(fetchNews(start,true))
-        }
-      }
-    }
-
-    if(!isEmpty(newestList) ){
-			list = <TimeLine data = {newestList} />
-}
-
-return (
-  <div className={styles.home}>
-  {list}
-  {noMoreNews ? '':loader}
-  <div className={noMoreNews?styles.noMoreNews:''}>{noMoreNews?'No More News :)':''}</div>
-</div>
-)
-}
+	render () {
+		document.title = 'New Links'
+		const { newestList, dispatch, start, noMoreNews } = this.props
+		let data = {
+			list: newestList,
+			dispatch: dispatch,
+			start: start,
+			fetchNews: fetchNews,
+			newest: true,
+			noMoreNews: noMoreNews
+		}
+		return (
+		<TimeLine data = {data} />
+		)
+	}
 }
 
 function mapStateToProps(state) {

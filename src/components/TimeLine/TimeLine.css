@@ -128,6 +128,13 @@
 	margin-right: 4px;
 }
 
+.noMoreNews {
+	text-align: center;
+	font-size: 14px;
+	color: #999;
+	padding: 30px;
+}
+
 @media (max-width: 600px) {
 	.timeLine li i {
 		width: auto;

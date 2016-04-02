@@ -37,10 +37,10 @@ class Home extends Component {
 		if(!isEmpty(newsList) ){
       //loader = moreStatus ? <Loader /> : null
       list = (
-      	newsList.map(function (item) {
+      	newsList.map(function (item,index) {
       		return (
       			<li key={item.id}>
-      			<i>{item.index}</i>
+      			<i>{index+1}</i>
       			<button>{item.score} <br/>{item.score > 1 ? 'points':'point'}</button>
       			<div className={styles.content}>
       			<h3><a href={item.url} target="_blank">{item.title}</a></h3>

@@ -9,11 +9,10 @@ function update(state = initialState, action) {
 		case constants.RECEIVE_NEWS:
 
 		const newsList = state.newsList ? state.newsList : []
-		const newsListLength = newsList.length + 1
+
 		action.json.map(function (item,index) {
 			newsList.push(
 			{
-				index:index+newsListLength,
 				id: item.id,
 				by: item.by,
 				descendants: item.descendants,

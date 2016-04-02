@@ -10,17 +10,14 @@ function fetchNews(times, newest) {
   if(start >= 500){
     return moMoreNews(newest)
   }
-
   let ajaxTop = existTop ? existTop:fetch(`${API}topstories.json`)
   .then(function(res){
-    console.log('ajaxTop')
     let idsArray = res.json()
     existTop = idsArray
     return idsArray
   })
   let ajaxNew = existNew ? existNew:fetch(`${API}newstories.json`)
   .then(function(res){
-    console.log('ajaxNew')
     let idsArray = res.json()
     existNew = idsArray
     return idsArray

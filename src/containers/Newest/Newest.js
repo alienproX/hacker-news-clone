@@ -19,7 +19,6 @@ class Home extends Component {
   render () {
     document.title = 'Hacker News'
     const { newestList, dispatch, start, noMoreNews } = this.props
-    console.log('this.props NEWS',this.props)
     let loader = <Loader />
     let list = null
     let moreStatus = false

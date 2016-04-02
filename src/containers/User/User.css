@@ -21,5 +21,11 @@
 .user li div {
 	line-height: 1.5;
 	vertical-align: top;
-  margin-left: 60px;
+	margin-left: 60px;
+}
+
+@media (max-width: 600px) {
+	.user {
+		padding: 10px;
+	}
 }

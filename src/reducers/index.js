@@ -1,2 +1,3 @@
 export newsList from './news'
-export getUser from './user' 
+export newestList from './newest'
+export getUser from './user'

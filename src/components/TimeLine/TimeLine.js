@@ -40,7 +40,7 @@ class TimeLine extends Component {
             <div className={styles.actionArea}>
             <a href={`https://hn.algolia.com/?query=${item.title}`} target="_blank"><span className={baseSty.iconClock}></span>past</a>
             <a href={`https://www.google.com/search?q=${item.title}`} target="_blank"><span className={baseSty.iconLink}></span>web</a>
-            <a href="#"><span className={baseSty.iconBubble}></span>{comments}</a>
+            <Link to={`/comment/${item.id}`}><span className={baseSty.iconBubble}></span>{comments}</Link>
             <Link to={`/user/${item.by}`} className={styles.user}>@{item.by}</Link>
             </div>
             </div>

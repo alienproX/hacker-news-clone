@@ -68,6 +68,11 @@ body {
 
 a {
 	transition: .3s;
+	color: #0084b4;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
 }
 
 @media (max-width: 600px) {

@@ -84,8 +84,9 @@
 	border-top: 2px solid #66757F;
 	position: absolute;
 	left: 10px;
-	top: 17px;
+	top: 22px;
 	height: 17px;
+	outline: none;
 }
 
 .showMenu::before {
@@ -93,16 +94,17 @@
 	display: block;
 	width: 100%;
 	height: 0px;
-	top: 4px;
-  position: absolute;
+	top: -8px;
+	position: absolute;
 	border-bottom: 2px solid #66757F;
 }
+
 .showMenu::after {
 	content: '';
 	display: block;
 	width: 100%;
 	height: 0px;
-	top:10px;
+	top: 4px;
 	position: absolute;
 	border-bottom: 2px solid #66757F;
 }
@@ -110,13 +112,15 @@
 .showCurrent {
 	border-top: none;
 }
-.showCurrent::before{
-	top: 7px;
+
+.showCurrent::before {
+	top: 0px;
 	transform: rotate(45deg);
 	transition: .3s;
 }
-.showCurrent::after{
-	top: 7px;
+
+.showCurrent::after {
+	top: 0px;
 	transition: .3s;
 	transform: rotate(-45deg);
 }
@@ -125,7 +129,7 @@
 	.showMenu {
 		display: block;
 	}
-	.mainTop{
+	.mainTop {
 		transition: .3s;
 		margin-top: 114px!important;
 	}

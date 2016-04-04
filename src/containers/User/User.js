@@ -27,7 +27,7 @@ class User extends Component {
         <li><span>user</span><div>{user.id}</div></li>
         <li><span>created</span><div>{socialTime(user.created)}</div></li>
         <li><span>karma</span><div>{user.karma}</div></li>
-        {user.about ? <li><span>about</span><div>{user.about}</div></li>:''}
+        {user.about ? <li><span>about</span><div  dangerouslySetInnerHTML={{__html:user.about}}></div></li>:''}
         </ul>
 
         </div>

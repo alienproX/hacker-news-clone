@@ -10,7 +10,7 @@ function fetchUser(id) {
 	}
 }
 
-function receiveUser(json, start) {
+function receiveUser(json) {
 	return {
 		type: constants.RECEIVE_USER,
 		json: json,

@@ -49,14 +49,14 @@ class Comment extends Component {
     }
     else{
       window.createdComment = created
-      let commentCount = comments.descendants > 0 ? `${comments.descendants+(comments.descendants == 1 ? ` comment`:` comments`)}`: `discuss`
+      let commentCount = comments.descendants > 0 ? `${comments.descendants+(comments.descendants == 1 ? ` comment`:` comments`)}`: `no comment yet`
       document.title = `Comments: ${comments.title}`
       return (
         <div className={styles.comment}>
-          <ul className={timeLine.timeLine}>
+          <ul className={`${timeLine.timeLine} ${styles.hoverNone}`}>
         <li>
         <button>{comments.score} <br/>{comments.score > 1 ? 'points':'point'}</button>
-        <div className={timeLine.content + ' ' +styles.titleContent}>
+        <div className={`${timeLine.content} ${styles.titleContent}`}>
         <h3><a href={comments.url} target="_blank">{comments.title}</a></h3>
         <cite><a href={comments.url} target="_blank">{getHost(comments.url)}</a> <time>-- {socialTime(comments.time)}</time></cite>
         <div className={timeLine.actionArea}>

@@ -20,7 +20,7 @@ function CommentList(array){
             <li>
             <div className={styles.commentContent}>
               <span className={styles.commentMeta}>
-                <Link to={`/user/${item.by}`}>@{item.by}</Link> &nbsp;{socialTime(item.time)}
+                <Link to={`/user/${item.by}`}>@{item.by}</Link> -- {socialTime(item.time)}
               </span>
               <span dangerouslySetInnerHTML={{__html:item.text}}></span>
             </div>

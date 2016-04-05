@@ -5,8 +5,8 @@ const API = constants.API
 function fetchUser(id) {
 	return dispatch => {
 		return fetch(`${API}user/${id}.json` )
-			.then(req => req.json())
-			.then(json => dispatch(receiveUser(json)))
+		.then(req => req.json())
+		.then(json => dispatch(receiveUser(json)))
 	}
 }
 

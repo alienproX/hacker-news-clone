@@ -7,7 +7,10 @@ let existNew = null
 
 function fetchNews(times, newest) {
   let start = times ? times*count : 0
-  if(start >= 500){
+  if(start >= existTop && !newest && existTop){
+    return moMoreNews()
+  }
+  if(start >= existNew && newest && existNew){
     return moMoreNews(newest)
   }
   let ajaxTop = existTop ? existTop:fetch(`${API}topstories.json`)

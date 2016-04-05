@@ -8,9 +8,11 @@ class SubmitPage extends Component {
 		document.title = 'Submit'
 		return (
 			<div className={styles.submit}>
-			<h3>You have to be logged in to submit. :)</h3>
-		<Link to="/login">Login</Link>
-		</div>
+				<h3>
+					You have to be logged in to submit. :)
+				</h3>
+				<Link to="/login">Login</Link>				
+			</div>
 		)
 }
 }

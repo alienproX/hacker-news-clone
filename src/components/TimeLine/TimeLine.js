@@ -32,18 +32,47 @@ class TimeLine extends Component {
           let comments = item.descendants > 0 ? `${item.descendants+(item.descendants == 1 ? ` comment`:` comments`)}`: `discuss`
           return (
             <li key={item.id}>
-            <i>{index+1}</i>
-            <button>{item.score} <br/>{item.score > 1 ? 'points':'point'}</button>
-            <div className={styles.content}>
-            <h3><a href={item.url} target="_blank">{item.title}</a></h3>
-            <cite><a href={item.url} target="_blank">{getHost(item.url)}</a> <time>-- {socialTime(item.time)}</time></cite>
-            <div className={styles.actionArea}>
-            <a href={`https://hn.algolia.com/?query=${item.title}`} target="_blank"><span className={baseSty.iconClock}></span>past</a>
-            <a href={`https://www.google.com/search?q=${item.title}`} target="_blank"><span className={baseSty.iconLink}></span>web</a>
-            <Link to={`/comment/${item.id}`}><span className={baseSty.iconBubble}></span>{comments}</Link>
-            <Link to={`/user/${item.by}`} className={styles.user}>@{item.by}</Link>
-            </div>
-            </div>
+              <i>
+                {index+1}
+              </i>
+              <button>
+                {item.score}
+                <br/>
+                {item.score > 1 ? 'points':'point'}
+              </button>
+              <div className={styles.content}>
+                <h3>
+                  <a href={item.url} target="_blank">
+                    {item.title}
+                  </a>
+                </h3>
+                <cite>
+                  <a href={item.url} target="_blank">
+                    {getHost(item.url)}
+                  </a>
+                  <time>
+                    -- {socialTime(item.time)}
+                  </time>
+                </cite>
+                <div className={styles.actionArea}>
+                  <a
+                    href={`https://hn.algolia.com/?query=${item.title}`}
+                    target="_blank"><span className={baseSty.iconClock}>
+                  </span>past</a>
+                  <a
+                    href={`https://www.google.com/search?q=${item.title}`}
+                    target="_blank"><span className={baseSty.iconLink}>
+                  </span>web</a>
+                  <Link to={`/comment/${item.id}`}>
+                    <span className={baseSty.iconBubble}>
+                    </span>
+                    {comments}
+                  </Link>
+                  <Link
+                    to={`/user/${item.by}`}
+                    className={styles.user}>@{item.by}</Link>
+                </div>
+              </div>
             </li>
             )
         })

@@ -28,7 +28,6 @@ function Header() {
 		<nav>
 		<div>
 		<Link to="/newest" activeClassName={styles.current}>new</Link>
-		<Link to="/comments" activeClassName={styles.current}>comments</Link>
 		<Link to="/show" activeClassName={styles.current}>show</Link>
 		<Link to="/ask" activeClassName={styles.current}>ask</Link>
 		<Link to="/jobs" activeClassName={styles.current}>jobs</Link>

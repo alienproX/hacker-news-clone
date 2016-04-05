@@ -12,16 +12,16 @@ function update(state = initialState, action) {
 
     action.json.map(function (item) {
       newestList.push(
-      {
-        id: item.id,
-        by: item.by,
-        descendants: item.descendants,
-        score: item.score,
-        time: item.time,
-        title: item.title,
-        type: item.type,
-        url: item.url
-      }
+        {
+          id: item.id,
+          by: item.by,
+          descendants: item.descendants,
+          score: item.score,
+          time: item.time,
+          title: item.title,
+          type: item.type,
+          url: item.url
+        }
       )
     })
 

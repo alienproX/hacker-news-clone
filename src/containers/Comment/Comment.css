@@ -1,7 +1,7 @@
 .commentList h4 {
 	font-size: 14px;
 	color: #888;
-	margin:10px 0px;
+	margin: 10px 0px;
 }
 
 .commentList ul {
@@ -58,11 +58,15 @@
 	margin-left: 70px!important;
 	margin-bottom: 10px;
 }
-.hoverNone li:hover{
+
+.hoverNone li:hover {
 	background: none!important;
 }
 
 @media (max-width: 600px) {
+	.commentList h4 {
+		margin-left: 10px;
+	}
 	.commentList ul {
 		margin: 0px 10px;
 	}

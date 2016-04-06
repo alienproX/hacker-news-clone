@@ -51,6 +51,7 @@ class Comment extends Component {
       window.createdComment = created
       let commentCount = comments.descendants > 0 ? `${comments.descendants+(comments.descendants == 1 ? ` comment`:` comments`)}`: `no comment yet`
       document.title = `Comments: ${comments.title}`
+      comments.url = comments.url ? comments.url : `https://news.ycombinator.com/item?id=${comments.id}`
       return (
         <div className={styles.comment}>
           <ul className={`${timeLine.timeLine} ${styles.hoverNone}`}>

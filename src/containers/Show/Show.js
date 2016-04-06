@@ -1,16 +1,44 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import styles from './Show.css'
+import { fetchNews } from '../../actions/news'
+import styles from './../Home/Home.css'
+import Loader from '../../components/Loader/Loader'
+import TimeLine from '../../components/TimeLine/TimeLine'
+import { isEmpty } from '../../utils'
 
 class Show extends Component {
+
+  componentDidMount () {
+    const {start} = this.props
+    if(!start){
+      this.props.dispatch(fetchNews(0,'show'))
+    }
+  }
+
 	render () {
 		document.title = 'Show'
+		const { showList, dispatch, start, noMoreNews } = this.props
+		let data = {
+			list: showList,
+			dispatch: dispatch,
+			start: start,
+			fetchNews: fetchNews,
+			type: 'show',
+			noMoreNews: noMoreNews
+		}
 		return (
-			<div className={styles.show}>
-			Show Page
-			</div>
-			)
+		<TimeLine data = {data} />
+		)
 	}
 }
 
-export default Show
+function mapStateToProps(state) {
+  return {
+    showList: state.showList.showList,
+    start: state.showList.start,
+    noMoreNews: state.showList.noMoreNews
+
+  }
+}
+
+export default connect(mapStateToProps)(Show)

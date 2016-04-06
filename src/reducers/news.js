@@ -2,7 +2,24 @@ const constants = require('../constants');
 
 const initialState = {}
 
-function update(state = initialState, action) {
+function arrayPush(data, array){
+	data.map(function (item,index) {
+		array.push(
+			{
+				id: item.id,
+				by: item.by,
+				descendants: item.descendants,
+				score: item.score,
+				time: item.time,
+				title: item.title,
+				type: item.type,
+				url: item.url
+			}
+		)
+	})
+}
+
+function newsList(state = initialState, action) {
 
 	switch (action.type) {
 
@@ -10,20 +27,7 @@ function update(state = initialState, action) {
 
 		const newsList = state.newsList ? state.newsList : []
 
-		action.json.map(function (item,index) {
-			newsList.push(
-				{
-					id: item.id,
-					by: item.by,
-					descendants: item.descendants,
-					score: item.score,
-					time: item.time,
-					title: item.title,
-					type: item.type,
-					url: item.url
-				}
-			)
-		})
+		arrayPush(action.json, newsList)
 
 		return Object.assign({}, state, { newsList: newsList,start:action.start+1 } )
 
@@ -36,4 +40,68 @@ function update(state = initialState, action) {
 	}
 }
 
-module.exports = update;
+
+function newestList(state = initialState, action) {
+
+	switch (action.type) {
+
+		case constants.RECEIVE_NEWEST:
+
+		const newestList = state.newestList ? state.newestList : []
+
+		arrayPush(action.json, newestList)
+
+		return Object.assign({}, state, { newestList: newestList,start:action.start+1 } )
+
+		case constants.NO_MORE_NEWEST:
+
+		return Object.assign({}, state, { noMoreNews: true} )
+
+		default:
+		return state
+	}
+}
+
+function showList(state = initialState, action) {
+
+	switch (action.type) {
+
+		case constants.RECEIVE_SHOW:
+
+		const showList = state.showList ? state.showList : []
+
+		arrayPush(action.json, showList)
+
+		return Object.assign({}, state, { showList: showList,start:action.start+1 } )
+
+		case constants.NO_MORE_SHOW:
+
+		return Object.assign({}, state, { noMoreNews: true} )
+
+		default:
+		return state
+	}
+}
+
+function askList(state = initialState, action) {
+
+	switch (action.type) {
+
+		case constants.RECEIVE_ASK:
+
+		const askList = state.askList ? state.askList : []
+
+		arrayPush(action.json, askList)
+
+		return Object.assign({}, state, { askList: askList,start:action.start+1 } )
+
+		case constants.NO_MORE_ASK:
+
+		return Object.assign({}, state, { noMoreNews: true} )
+
+		default:
+		return state
+	}
+}
+
+module.exports = {newsList, newestList, showList, askList}

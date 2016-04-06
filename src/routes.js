@@ -3,7 +3,6 @@ import { Route, IndexRoute, Link } from 'react-router'
 
 import App from './containers/App'
 import Home from './containers/Home/Home'
-import Comments from './containers/Comments/Comments'
 import Login from './containers/Login/Login'
 import Newest from './containers/Newest/Newest'
 import Show from './containers/Show/Show'
@@ -17,7 +16,6 @@ const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={Home}/>
     <Route path="/newest" component={Newest}/>
-    <Route path="/comments" component={Comments}/>
     <Route path="/show" component={Show}/>
     <Route path="/ask" component={Ask}/>
     <Route path="/jobs" component={Jobs}/>

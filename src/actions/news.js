@@ -4,47 +4,91 @@ const API = constants.API
 const count = 25
 let existTop = null
 let existNew = null
+let existAsk = null
+let existShow = null
+let existJobs = null
 
-function fetchNews(times, newest) {
+function fetchType(type){
+
+  switch (type) {
+
+    case 'newest':
+    return {
+      existArray: existNew,
+      apiPath: existNew ? existNew : fetch(`${API}newstories.json`)
+      .then(function(res){
+        let idsArray = res.json()
+        existNew = idsArray
+        return idsArray
+    }),
+      receiveAction: constants.RECEIVE_NEWEST,
+      nomoreAction: constants.NO_MORE_NEWEST
+  }
+
+  case 'show':
+  return {
+      existArray: existShow,
+      apiPath: existShow ? existShow : fetch(`${API}showstories.json`)
+      .then(function(res){
+        let idsArray = res.json()
+        existShow = idsArray
+        return idsArray
+    }),
+      receiveAction: constants.RECEIVE_SHOW,
+      nomoreAction: constants.NO_MORE_SHOW
+  }
+
+  case 'ask':
+
+  return {
+      existArray: existAsk,
+      apiPath: existAsk ? existAsk : fetch(`${API}askstories.json`)
+      .then(function(res){
+        let idsArray = res.json()
+        existAsk = idsArray
+        return idsArray
+    }),
+      receiveAction: constants.RECEIVE_ASK,
+      nomoreAction: constants.NO_MORE_ASK
+
+
+  }
+
+  default:
+  return {
+      existArray: existTop,
+      apiPath: existTop ? existTop : creatFetch(existTop, 'topstories'),
+      receiveAction: constants.RECEIVE_NEWS,
+      nomoreAction: constants.NO_MORE_NEWS
+  }
+}
+}
+
+function fetchNews(times, type) {
   let start = times ? times*count : 0
-  if(start >= existTop && !newest && existTop){
-    return moMoreNews()
-  }
-  if(start >= existNew && newest && existNew){
-    return moMoreNews(newest)
-  }
-  let ajaxTop = existTop ? existTop:fetch(`${API}topstories.json`)
-  .then(function(res){
-    let idsArray = res.json()
-    existTop = idsArray
-    return idsArray
-  })
-  let ajaxNew = existNew ? existNew:fetch(`${API}newstories.json`)
-  .then(function(res){
-    let idsArray = res.json()
-    existNew = idsArray
-    return idsArray
-  })
+
   return dispatch => {
-    (newest ? ajaxNew : ajaxTop)
+    fetchType(type).apiPath
     .then(res=>Promise.all(res.slice(start, start+count).map(item => fetch(`${API}item/${item}.json`))))
     .then(res=>Promise.all(res.map(item =>item.json())))
-    .then(json => dispatch(receiveNews(json,start/count,newest)))
+    .then(json=>dispatch(receiveNews(json,start/count,type)))
   }
 }
 
-function receiveNews(json, start, newest) {
-  return {
-    type: (newest ? constants.RECEIVE_NEWEST : constants.RECEIVE_NEWS),
-    json: json,
-    start: start
-  }
+function receiveNews(json, start, type) {
+    if(json.length > 0){
+      return {
+        type: fetchType(type).receiveAction,
+        json: json,
+        start: start
+      }
+    }
+    else{
+      return {
+        type: fetchType(type).nomoreAction
+      }
+    }
 }
 
-function moMoreNews(newest) {
-  return {
-    type: (newest ? constants.NO_MORE_NEWEST : constants.NO_MORE_NEWS)
-  }
-}
 
 module.exports = { fetchNews, receiveNews }

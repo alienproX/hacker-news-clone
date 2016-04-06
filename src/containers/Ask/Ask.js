@@ -1,16 +1,44 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import styles from './Ask.css'
+import { fetchNews } from '../../actions/news'
+import styles from './../Home/Home.css'
+import Loader from '../../components/Loader/Loader'
+import TimeLine from '../../components/TimeLine/TimeLine'
+import { isEmpty } from '../../utils'
 
 class Ask extends Component {
+
+  componentDidMount () {
+    const {start} = this.props
+    if(!start){
+      this.props.dispatch(fetchNews(0,'ask'))
+    }
+  }
+
 	render () {
 		document.title = 'Ask'
+		const { askList, dispatch, start, noMoreNews } = this.props
+		let data = {
+			list: askList,
+			dispatch: dispatch,
+			start: start,
+			fetchNews: fetchNews,
+			type: 'ask',
+			noMoreNews: noMoreNews
+		}
 		return (
-			<div className={styles.ask}>
-			Ask Page
-			</div>
-			)
+		<TimeLine data = {data} />
+		)
 	}
 }
 
-export default Ask
+function mapStateToProps(state) {
+  return {
+    askList: state.askList.askList,
+    start: state.askList.start,
+    noMoreNews: state.askList.noMoreNews
+
+  }
+}
+
+export default connect(mapStateToProps)(Ask)

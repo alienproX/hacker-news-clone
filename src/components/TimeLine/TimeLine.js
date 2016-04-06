@@ -21,7 +21,7 @@ class TimeLine extends Component {
         moreStatus = (document.body.scrollTop > 0 && document.body.scrollTop >= document.body.offsetHeight - window.innerHeight - 200) ? true : false
         if(moreStatus){
           loader = <Loader />
-          data.dispatch(data.fetchNews(data.start,data.newest))
+          data.dispatch(data.fetchNews(data.start,data.type))
         }
       }
     }
@@ -30,6 +30,7 @@ class TimeLine extends Component {
       list = (
         data.list.map(function (item,index) {
           let comments = item.descendants > 0 ? `${item.descendants+(item.descendants == 1 ? ` comment`:` comments`)}`: `discuss`
+          item.url = item.url ? item.url : `https://news.ycombinator.com/item?id=${item.id}`
           return (
             <li key={item.id}>
               <i>

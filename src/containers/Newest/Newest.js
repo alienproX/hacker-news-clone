@@ -11,7 +11,7 @@ class Home extends Component {
   componentDidMount () {
     const {start} = this.props
     if(!start){
-      this.props.dispatch(fetchNews(0,true))
+      this.props.dispatch(fetchNews(0,'newest'))
     }
   }
 
@@ -23,7 +23,7 @@ class Home extends Component {
 			dispatch: dispatch,
 			start: start,
 			fetchNews: fetchNews,
-			newest: true,
+			type: 'newest',
 			noMoreNews: noMoreNews
 		}
 		return (

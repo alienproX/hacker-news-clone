@@ -10,13 +10,13 @@
 
 .submit a {
 	display: block;
-	width: 100px;
+	width: 270px;
 	margin: 0px auto;
 	background: rgba(8, 130, 83, 0.62);
 	border: 1px solid #489477;
 	color: #fff;
 	padding: 7px;
-	font-size: 16px;
+	font-size: 14px;
 	border-radius: 4px;
 	cursor: pointer;
 	margin-top: 20px;

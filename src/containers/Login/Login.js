@@ -8,17 +8,11 @@ class Login extends Component {
 		document.title = 'Login'
 		return (
 			<div className={styles.login}>
-			<ul>
-			<h3>Login</h3>
-			<li><span>username:	</span><div><input type="text" /></div></li>
-			<li><span>password:	</span><div><input type="text" /></div></li>
-			<button>login</button>
-			<a href="#">Forgot your password?</a>
-			</ul>
-			<ul>
-			<a href="#">Create Account</a>
-			</ul>
-			</div>
+					<h3>
+						Log in Hacker News. :)
+					</h3>
+					<a href="https://news.ycombinator.com/login">https://news.ycombinator.com/login</a>
+				</div>
 			)
 	}
 }

@@ -9,9 +9,9 @@ class SubmitPage extends Component {
 		return (
 			<div className={styles.submit}>
 				<h3>
-					You have to be logged in to submit. :)
+					You have to be logged in to Hacker News. :)
 				</h3>
-				<Link to="/login">Login</Link>				
+				<a href="https://news.ycombinator.com/submit">https://news.ycombinator.com/submit</a>				
 			</div>
 		)
 }

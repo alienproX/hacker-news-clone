@@ -39,7 +39,6 @@ function fetchType(type){
     }
 
     case 'ask':
-
     return {
       existArray: existAsk,
       apiPath: existAsk ? existAsk : fetch(`${API}askstories.json`)
@@ -50,8 +49,19 @@ function fetchType(type){
       }),
       receiveAction: constants.RECEIVE_ASK,
       nomoreAction: constants.NO_MORE_ASK
+    }
 
-
+    case 'jobs':
+    return {
+      existArray: existJobs,
+      apiPath: existJobs ? existJobs : fetch(`${API}jobstories.json`)
+      .then(function(res){
+        let idsArray = res.json()
+        existJobs = idsArray
+        return idsArray
+      }),
+      receiveAction: constants.RECEIVE_JOBS,
+      nomoreAction: constants.NO_MORE_JOBS
     }
 
     default:

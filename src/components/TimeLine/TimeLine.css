@@ -41,6 +41,10 @@
 	height: 55px;
 }
 
+.jobs li button{
+	display: none;
+}
+
 .timeLine li button::before {
 	content: '';
 	border-color: transparent transparent #ccc transparent;
@@ -56,6 +60,10 @@
 	transition: .3s;
 }
 
+.jobs li button{
+	display: none;
+}
+
 .timeLine li button:hover {
 	border: 1px solid #81bfa7;
 	color: #81bfa7;
@@ -67,6 +75,10 @@
 
 .timeLine li .content {
 	margin-left: 120px;
+}
+
+.jobs li .content {
+	margin-left: 60px;
 }
 
 .timeLine li .actionArea {
@@ -136,6 +148,10 @@
 	padding: 30px;
 }
 
+.jobsComment{
+	display: none
+}
+
 @media (max-width: 600px) {
 	.timeLine {
 		padding: 0px;
@@ -159,6 +175,9 @@
 	.timeLine li .content {
 		margin-left: 70px;
 		margin-right: 10px;
+	}
+	.jobs li .content {
+		margin-left: 10px;
 	}
 	.timeLine li .actionArea a {
 		margin-right: 20px;

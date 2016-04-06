@@ -64,7 +64,7 @@ class TimeLine extends Component {
                     href={`https://www.google.com/search?q=${item.title}`}
                     target="_blank"><span className={baseSty.iconLink}>
                   </span>web</a>
-                  <Link to={`/comment/${item.id}`}>
+                <Link to={`/comment/${item.id}`}  className={data.type === 'jobs'?styles.jobsComment:''}>
                     <span className={baseSty.iconBubble}>
                     </span>
                     {comments}
@@ -75,22 +75,22 @@ class TimeLine extends Component {
                 </div>
               </div>
             </li>
-            )
+          )
         })
-        )
-}
+      )
+    }
 
-return (
-  <div className={styles.home}>
-  <ul className={styles.timeLine}>
-  {list}
-  </ul>
-  {data.noMoreNews ? '':loader}
-  <div className={data.noMoreNews?styles.noMoreNews:''}>{data.noMoreNews?'No More News :)':''}</div>
-</div>
-)
+    return (
+      <div className={styles.home}>
+        <ul className={`${styles.timeLine} ${data.type === 'jobs'?styles.jobs:''}`}>
+          {list}
+        </ul>
+        {data.noMoreNews ? '':loader}
+        <div className={data.noMoreNews?styles.noMoreNews:''}>{data.noMoreNews?'No More News :)':''}</div>
+      </div>
+    )
 
-}
+  }
 }
 
 export default TimeLine

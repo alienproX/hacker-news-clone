@@ -104,4 +104,25 @@ function askList(state = initialState, action) {
 	}
 }
 
-module.exports = {newsList, newestList, showList, askList}
+function jobsList(state = initialState, action) {
+
+	switch (action.type) {
+
+		case constants.RECEIVE_JOBS:
+
+		const jobsList = state.jobsList ? state.jobsList : []
+
+		arrayPush(action.json, jobsList)
+
+		return Object.assign({}, state, { jobsList: jobsList,start:action.start+1 } )
+
+		case constants.NO_MORE_JOBS:
+
+		return Object.assign({}, state, { noMoreNews: true} )
+
+		default:
+		return state
+	}
+}
+
+module.exports = {newsList, newestList, showList, askList, jobsList}

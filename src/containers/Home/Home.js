@@ -17,14 +17,15 @@ class Home extends Component {
 
   render () {
     document.title = 'Hacker News'
-    const { newsList, dispatch, start, noMoreNews } = this.props
+    const { newsList, dispatch, start, noMoreNews, created } = this.props
 		let data = {
 			list: newsList,
 			dispatch: dispatch,
 			start: start,
 			fetchNews: fetchNews,
 			newest: false,
-			noMoreNews: noMoreNews
+			noMoreNews: noMoreNews,
+      created: created
 		}
     return (
     <TimeLine data = {data} />
@@ -36,7 +37,8 @@ function mapStateToProps(state) {
   return {
     newsList: state.newsList.newsList,
     start: state.newsList.start,
-    noMoreNews: state.newsList.noMoreNews
+    noMoreNews: state.newsList.noMoreNews,
+    created: state.newsList.created
 
   }
 }

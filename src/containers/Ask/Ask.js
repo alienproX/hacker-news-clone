@@ -17,14 +17,15 @@ class Ask extends Component {
 
 	render () {
 		document.title = 'Ask'
-		const { askList, dispatch, start, noMoreNews } = this.props
+		const { askList, dispatch, start, noMoreNews, created } = this.props
 		let data = {
 			list: askList,
 			dispatch: dispatch,
 			start: start,
 			fetchNews: fetchNews,
 			type: 'ask',
-			noMoreNews: noMoreNews
+			noMoreNews: noMoreNews,
+      created: created
 		}
 		return (
 		<TimeLine data = {data} />
@@ -36,7 +37,8 @@ function mapStateToProps(state) {
   return {
     askList: state.askList.askList,
     start: state.askList.start,
-    noMoreNews: state.askList.noMoreNews
+    noMoreNews: state.askList.noMoreNews,
+    created: state.askList.created
 
   }
 }

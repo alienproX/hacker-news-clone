@@ -95,7 +95,8 @@ function receiveNews(json, start, type) {
     return {
       type: fetchType(type).receiveAction,
       json: json,
-      start: start
+      start: start,
+      created: Date.now()
     }
   }
   else{

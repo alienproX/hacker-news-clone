@@ -17,14 +17,15 @@ class Jobs extends Component {
 
 	render () {
 		document.title = 'Jobs'
-		const { jobsList, dispatch, start, noMoreNews } = this.props
+		const { jobsList, dispatch, start, noMoreNews, created } = this.props
 		let data = {
 			list: jobsList,
 			dispatch: dispatch,
 			start: start,
 			fetchNews: fetchNews,
 			type: 'jobs',
-			noMoreNews: noMoreNews
+			noMoreNews: noMoreNews,
+      created: created
 		}
 		return (
 			<TimeLine data = {data} />
@@ -36,7 +37,8 @@ function mapStateToProps(state) {
 	return {
 		jobsList: state.jobsList.jobsList,
 		start: state.jobsList.start,
-		noMoreNews: state.jobsList.noMoreNews
+		noMoreNews: state.jobsList.noMoreNews,
+    created: state.jobsList.created
 
 	}
 }

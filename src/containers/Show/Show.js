@@ -17,14 +17,15 @@ class Show extends Component {
 
 	render () {
 		document.title = 'Show'
-		const { showList, dispatch, start, noMoreNews } = this.props
+		const { showList, dispatch, start, noMoreNews, created} = this.props
 		let data = {
 			list: showList,
 			dispatch: dispatch,
 			start: start,
 			fetchNews: fetchNews,
 			type: 'show',
-			noMoreNews: noMoreNews
+			noMoreNews: noMoreNews,
+      created: created
 		}
 		return (
 		<TimeLine data = {data} />
@@ -36,7 +37,8 @@ function mapStateToProps(state) {
   return {
     showList: state.showList.showList,
     start: state.showList.start,
-    noMoreNews: state.showList.noMoreNews
+    noMoreNews: state.showList.noMoreNews,
+    created: state.showList.created
 
   }
 }

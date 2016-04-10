@@ -29,7 +29,7 @@ function newsList(state = initialState, action) {
 
 		arrayPush(action.json, newsList)
 
-		return Object.assign({}, state, { newsList: newsList,start:action.start+1 } )
+		return Object.assign({}, state, { newsList: newsList, start:action.start+1, created:action.created } )
 
 		case constants.NO_MORE_NEWS:
 
@@ -51,7 +51,7 @@ function newestList(state = initialState, action) {
 
 		arrayPush(action.json, newestList)
 
-		return Object.assign({}, state, { newestList: newestList,start:action.start+1 } )
+		return Object.assign({}, state, { newestList: newestList, start:action.start+1, created:action.created } )
 
 		case constants.NO_MORE_NEWEST:
 
@@ -72,7 +72,7 @@ function showList(state = initialState, action) {
 
 		arrayPush(action.json, showList)
 
-		return Object.assign({}, state, { showList: showList,start:action.start+1 } )
+		return Object.assign({}, state, { showList: showList, start:action.start+1, created:action.created } )
 
 		case constants.NO_MORE_SHOW:
 
@@ -93,7 +93,7 @@ function askList(state = initialState, action) {
 
 		arrayPush(action.json, askList)
 
-		return Object.assign({}, state, { askList: askList,start:action.start+1 } )
+		return Object.assign({}, state, { askList: askList, start:action.start+1, created:action.created } )
 
 		case constants.NO_MORE_ASK:
 
@@ -114,7 +114,7 @@ function jobsList(state = initialState, action) {
 
 		arrayPush(action.json, jobsList)
 
-		return Object.assign({}, state, { jobsList: jobsList,start:action.start+1 } )
+		return Object.assign({}, state, { jobsList: jobsList, start:action.start+1, created:action.created } )
 
 		case constants.NO_MORE_JOBS:
 

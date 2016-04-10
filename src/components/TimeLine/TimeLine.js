@@ -51,7 +51,7 @@ class TimeLine extends Component {
                   <a href={item.url} target="_blank">
                     {getHost(item.url)}
                   </a>
-                  <time>
+                  <time title={socialTime(item.time, true)}>
                     -- {socialTime(item.time)}
                   </time>
                 </cite>

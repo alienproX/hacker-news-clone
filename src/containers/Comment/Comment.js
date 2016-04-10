@@ -20,7 +20,7 @@ function CommentList(array){
             <li>
             <div className={styles.commentContent}>
               <span className={styles.commentMeta}>
-                <Link to={`/user/${item.by}`}>@{item.by}</Link> -- {socialTime(item.time)}
+                <Link to={`/user/${item.by}`}>@{item.by}</Link> -- <span title={socialTime(item.time, true)}>{socialTime(item.time)}</span>
               </span>
               <span dangerouslySetInnerHTML={{__html:item.text}}></span>
             </div>
@@ -59,7 +59,7 @@ class Comment extends Component {
         <button>{comments.score} <br/>{comments.score > 1 ? 'points':'point'}</button>
         <div className={`${timeLine.content} ${styles.titleContent}`}>
         <h3><a href={comments.url} target="_blank">{comments.title}</a></h3>
-        <cite><a href={comments.url} target="_blank">{getHost(comments.url)}</a> <time>-- {socialTime(comments.time)}</time></cite>
+        <cite><a href={comments.url} target="_blank">{getHost(comments.url)}</a> <time title={socialTime(comments.time, true)}>-- {socialTime(comments.time)}</time></cite>
         <div className={timeLine.actionArea}>
           <a href={`https://hn.algolia.com/?query=${comments.title}`} target="_blank"><span className={baseSty.iconClock}></span>past</a>
           <a href={`https://www.google.com/search?q=${comments.title}`} target="_blank"><span className={baseSty.iconLink}></span>web</a>

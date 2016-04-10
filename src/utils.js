@@ -5,6 +5,12 @@ function isEmpty (data) {
 	return false
 }
 
+function two(num) {
+	return num > 9
+		? num
+		: '0' + num;
+}
+
 function socialTime (date, full) {
 	if (!date)
 		return

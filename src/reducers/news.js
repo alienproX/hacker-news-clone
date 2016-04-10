@@ -25,7 +25,7 @@ function newsList(state = initialState, action) {
 
 		case constants.RECEIVE_NEWS:
 
-		const newsList = state.newsList ? state.newsList : []
+		let newsList = state.newsList && action.start > 0 ? state.newsList : []
 
 		arrayPush(action.json, newsList)
 
@@ -47,7 +47,7 @@ function newestList(state = initialState, action) {
 
 		case constants.RECEIVE_NEWEST:
 
-		const newestList = state.newestList ? state.newestList : []
+		let newestList = state.newestList && action.start > 0 ? state.newestList : []
 
 		arrayPush(action.json, newestList)
 
@@ -68,7 +68,7 @@ function showList(state = initialState, action) {
 
 		case constants.RECEIVE_SHOW:
 
-		const showList = state.showList ? state.showList : []
+		let showList = state.showList && action.start > 0 ? state.showList : []
 
 		arrayPush(action.json, showList)
 
@@ -89,7 +89,7 @@ function askList(state = initialState, action) {
 
 		case constants.RECEIVE_ASK:
 
-		const askList = state.askList ? state.askList : []
+		let askList = state.askList && action.start > 0 ? state.askList : []
 
 		arrayPush(action.json, askList)
 
@@ -110,7 +110,7 @@ function jobsList(state = initialState, action) {
 
 		case constants.RECEIVE_JOBS:
 
-		const jobsList = state.jobsList ? state.jobsList : []
+		let jobsList = state.jobsList && action.start > 0 ? state.jobsList : []
 
 		arrayPush(action.json, jobsList)
 

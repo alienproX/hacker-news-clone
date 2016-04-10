@@ -26,7 +26,14 @@ class TimeLine extends Component {
       }
     }
 
-    if(!isEmpty(data.list) ){
+    if(isEmpty(data.list) || window.createdNewsTime == data.created ){
+      loader = <Loader />
+      if(data.start > 0){
+        data.dispatch(data.fetchNews(0,data.type))
+      }
+    }
+    else{
+			window.createdNewsTime = data.created
       list = (
         data.list.map(function (item,index) {
           let comments = item.descendants > 0 ? `${item.descendants+(item.descendants == 1 ? ` comment`:` comments`)}`: `discuss`

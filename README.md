@@ -2,7 +2,7 @@
 
 A Hacker News web client created with `React` & `Redux`.
 
-online demo https://acdc.me/hackernews/
+online demo https://mblur.com/hackernews/
 
 **Steps**
 
